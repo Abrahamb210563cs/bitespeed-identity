@@ -1,0 +1,12 @@
+ 
+services:
+  - type: web
+    name: bitespeed-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python manage.py migrate && python manage.py runserver 0.0.0.0:10000
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: bitespeed.settings
+      - key: PYTHON_VERSION
+        value: 3.11
